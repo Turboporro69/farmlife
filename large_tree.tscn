@@ -1,20 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://b40rmugomsr2l"]
+[gd_scene load_steps=10 format=3 uid="uid://dcymvwlrh2oo"]
 
-[ext_resource type="Texture2D" uid="uid://ce1w4w6rrynq2" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_2b8gu"]
-[ext_resource type="Shader" path="res://tree_shake.gdshader" id="1_66yvs"]
-[ext_resource type="PackedScene" uid="uid://c8ekm0mlp1vw5" path="res://hurt_component.tscn" id="2_8idy6"]
-[ext_resource type="Script" path="res://small_tree.gd" id="2_8231m"]
-[ext_resource type="PackedScene" uid="uid://c045rt70tm51g" path="res://damage_component.tscn" id="4_qcpgp"]
+[ext_resource type="Shader" path="res://tree_shake.gdshader" id="1_67pd3"]
+[ext_resource type="Texture2D" uid="uid://ce1w4w6rrynq2" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_ri30h"]
+[ext_resource type="Script" path="res://small_tree.gd" id="2_ek6j7"]
+[ext_resource type="PackedScene" uid="uid://c8ekm0mlp1vw5" path="res://hurt_component.tscn" id="3_vtbt5"]
+[ext_resource type="PackedScene" uid="uid://c045rt70tm51g" path="res://damage_component.tscn" id="4_4f1uv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4c1m7"]
 resource_local_to_scene = true
-shader = ExtResource("1_66yvs")
+shader = ExtResource("1_67pd3")
 shader_parameter/shake_intensity = 0.0
 shader_parameter/shake_speed = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f486l"]
-atlas = ExtResource("1_2b8gu")
-region = Rect2(0, 0, 16, 32)
+atlas = ExtResource("1_ri30h")
+region = Rect2(16, 0, 32, 32)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4pcjj"]
 radius = 4.0
@@ -22,12 +22,12 @@ radius = 4.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al03e"]
 size = Vector2(10, 12)
 
-[node name="SmallTree" type="Sprite2D"]
+[node name="LargeTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_4c1m7")
 position = Vector2(0, -11)
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_f486l")
-script = ExtResource("2_8231m")
+script = ExtResource("2_ek6j7")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -35,7 +35,7 @@ script = ExtResource("2_8231m")
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_4pcjj")
 
-[node name="HurtComponent" parent="." instance=ExtResource("2_8idy6")]
+[node name="HurtComponent" parent="." instance=ExtResource("3_vtbt5")]
 tool = 1
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
@@ -43,5 +43,5 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_al03e")
 debug_color = Color(0.851709, 0.000850759, 0.895926, 0.42)
 
-[node name="DamageComponent" parent="." instance=ExtResource("4_qcpgp")]
-max_damage = 3
+[node name="DamageComponent" parent="." instance=ExtResource("4_4f1uv")]
+max_damage = 5

@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3mqtwddrcdq6"]
+
+[ext_resource type="Texture2D" uid="uid://gis8tn7713n4" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_fcfd6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56uur"]
+atlas = ExtResource("1_fcfd6")
+region = Rect2(201, 105, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_52f53"]
+texture = SubResource("AtlasTexture_56uur")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3h45o"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-c372f5b7f7d551e201f3588e84a99746.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp0cx"]
+atlas = SubResource("CompressedTexture2D_3h45o")
+region = Rect2(11, 107, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ga5pp"]
+texture = SubResource("AtlasTexture_cp0cx")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ervrx"]
+atlas = ExtResource("1_fcfd6")
+region = Rect2(11, 155, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s0wkj"]
+texture = SubResource("AtlasTexture_ervrx")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 3.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_p1pia"]
+DarkWoodPanel/base_type = &"PanelContainer"
+DarkWoodPanel/styles/panel = SubResource("StyleBoxTexture_52f53")
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+ToolButton/base_type = &"Button"
+ToolButton/styles/hover = SubResource("StyleBoxTexture_ga5pp")
+ToolButton/styles/normal = SubResource("StyleBoxTexture_s0wkj")
+
+[node name="ToolsPanel" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_p1pia")
+theme_type_variation = &"DarkWoodPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ToolAxe" type="Button" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(26, 26)
+layout_mode = 2
+theme_type_variation = &"ToolButton"

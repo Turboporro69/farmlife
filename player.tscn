@@ -401,9 +401,9 @@ size = Vector2(10, 5)
 radius = 3.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_c1i0y")
-current_tool = 3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rpeg8")
@@ -445,6 +445,7 @@ player = NodePath("../..")
 animated_sprite_2d = NodePath("../../AnimatedSprite2D")
 
 [node name="HitComponent" parent="." instance=ExtResource("10_d30w1")]
+current_tool = 1
 
 [node name="HitCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
 position = Vector2(0, 8)

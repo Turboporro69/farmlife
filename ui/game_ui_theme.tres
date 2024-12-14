@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://clpvpp7mwr72c"]
+
+[ext_resource type="Texture2D" uid="uid://gis8tn7713n4" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_hycb8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_467fw"]
+atlas = ExtResource("1_hycb8")
+region = Rect2(201, 105, 30, 30)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1hiws"]
+texture = SubResource("AtlasTexture_467fw")
+region_rect = Rect2(7, 7, 16, 16)
+
+[resource]
+DarkWoodPanel/base_type = &"PanelContainer"
+DarkWoodPanel/styles/panel = SubResource("StyleBoxTexture_1hiws")

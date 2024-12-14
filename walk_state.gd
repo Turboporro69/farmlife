@@ -8,23 +8,22 @@ extends NodeState
 func _on_process(_delta : float) -> void:
 	pass
 
-
 func _on_physics_process(_delta : float) -> void:
 	var direction: Vector2 = GameInputEvents.movement_input()
 	
-	if direction == Vector2.UP:
-		animated_sprite_2d.play("walk_back")
-	elif direction == Vector2.RIGHT:
-		animated_sprite_2d.play("walk_right")
-	elif direction == Vector2.DOWN:
-		animated_sprite_2d.play("walk_front")
-	elif direction == Vector2.LEFT:
-		animated_sprite_2d.play("walk_left")
-	
 	if direction != Vector2.ZERO:
+		if direction.y < 0:
+			animated_sprite_2d.play("walk_back")
+		elif direction.y > 0:
+			animated_sprite_2d.play("walk_front")
+		if direction.x > 0:
+			animated_sprite_2d.play("walk_right")
+		elif direction.x < 0:
+			animated_sprite_2d.play("walk_left")
+	
 		player.player_direction = direction
 	
-	player.velocity = direction * speed
+	player.velocity = direction.normalized() * speed
 	player.move_and_slide()
 
 

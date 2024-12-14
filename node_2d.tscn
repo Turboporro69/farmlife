@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://daxkn04evpbji" path="res://player.tscn" id="3_cwdxs"]
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_45f13")
 
 [node name="Node2D" type="Node2D" parent="."]

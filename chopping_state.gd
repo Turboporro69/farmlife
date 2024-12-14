@@ -6,7 +6,7 @@ extends NodeState
 
 func _ready() -> void:
 	hit_component_collision_shape.disabled = true
-	hit_component_collision_shape.position = Vector2(0, 0);
+	hit_component_collision_shape.position = Vector2(-4, 10);
 
 func _on_process(_delta : float) -> void:
 	pass
