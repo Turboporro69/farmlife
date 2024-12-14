@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://x2ghbsn3db66"]
+
+[ext_resource type="Texture2D" uid="uid://qt8c7wq6e0ov" path="res://Sprout Lands - Sprites - Basic pack/Objects/Basic_Plants.png" id="1_e5a6g"]
+[ext_resource type="PackedScene" uid="uid://c5ytgcojw7078" path="res://collectable_component.tscn" id="2_kbpmk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5g2c0"]
+radius = 3.53798
+height = 19.7989
+
+[node name="CornHarvest" type="Sprite2D"]
+texture = ExtResource("1_e5a6g")
+hframes = 6
+vframes = 2
+frame = 5
+
+[node name="CollectableComponent" parent="." instance=ExtResource("2_kbpmk")]
+y_sort_enabled = true
+collectable_name = "corn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+rotation = 0.788889
+shape = SubResource("CapsuleShape2D_5g2c0")

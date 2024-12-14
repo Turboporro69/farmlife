@@ -20,11 +20,11 @@ region = Rect2(16, 0, 32, 32)
 radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al03e"]
-size = Vector2(10, 12)
+size = Vector2(10, 15)
 
 [node name="LargeTree" type="Sprite2D"]
 material = SubResource("ShaderMaterial_4c1m7")
-position = Vector2(0, -11)
+position = Vector2(0, -18)
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_f486l")
 script = ExtResource("2_ek6j7")
@@ -39,7 +39,8 @@ shape = SubResource("CircleShape2D_4pcjj")
 tool = 1
 
 [node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
-position = Vector2(0, 6)
+y_sort_enabled = true
+position = Vector2(0, 6.66667)
 shape = SubResource("RectangleShape2D_al03e")
 debug_color = Color(0.851709, 0.000850759, 0.895926, 0.42)
 

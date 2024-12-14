@@ -16,6 +16,12 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"
 
+[autoload]
+
+ToolManager="*res://tool_manager.gd"
+InventoryManager="*res://ui/inventory_manager.gd"
+DayAndNightCycleManager="*res://ui/day_and_night_cycle_manager.gd"
+
 [display]
 
 window/size/viewport_width=640
