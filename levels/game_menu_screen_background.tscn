@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc5s6vuwupjm4"]
+
+[ext_resource type="PackedScene" uid="uid://br7p2x4p0dpol" path="res://levels/level_1.tscn" id="2_obknw"]
+[ext_resource type="PackedScene" uid="uid://daxkn04evpbji" path="res://player.tscn" id="3_t5ld3"]
+[ext_resource type="PackedScene" uid="uid://bjbptu54jylcn" path="res://guide/guide.tscn" id="4_dlx1s"]
+
+[node name="Mainscene" type="Node"]
+
+[node name="GameRoot" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="LevelRoot" type="Node2D" parent="GameRoot"]
+y_sort_enabled = true
+
+[node name="Level1" parent="GameRoot/LevelRoot" instance=ExtResource("2_obknw")]
+
+[node name="Player" parent="GameRoot" instance=ExtResource("3_t5ld3")]
+position = Vector2(1411, 459)
+
+[node name="Guide" parent="GameRoot" instance=ExtResource("4_dlx1s")]
+position = Vector2(1410, 410)

@@ -1,11 +1,7 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	call_deferred("set_scene_process_mode")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_scene_process_mode() -> void:
+	process_mode = PROCESS_MODE_DISABLED

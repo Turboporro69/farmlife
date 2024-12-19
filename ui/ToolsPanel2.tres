@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://cacbng01wnh2n"]
+[gd_resource type="Theme" load_steps=50 format=3 uid="uid://cacbng01wnh2n"]
 
 [ext_resource type="Texture2D" uid="uid://gis8tn7713n4" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_fi2vc"]
 [ext_resource type="FontFile" uid="uid://bb7q4u713xlhh" path="res://Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_fc56d"]
@@ -85,6 +85,73 @@ texture_margin_left = 2.0
 texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 3.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hu8lp"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-c372f5b7f7d551e201f3588e84a99746.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfrvl"]
+atlas = SubResource("CompressedTexture2D_hu8lp")
+region = Rect2(11, 11, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1063o"]
+texture = SubResource("AtlasTexture_jfrvl")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2gqx"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-c372f5b7f7d551e201f3588e84a99746.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4m6u"]
+atlas = SubResource("CompressedTexture2D_v2gqx")
+region = Rect2(11, 59, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_essle"]
+texture = SubResource("AtlasTexture_u4m6u")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ant8v"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-c372f5b7f7d551e201f3588e84a99746.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbrff"]
+atlas = SubResource("CompressedTexture2D_ant8v")
+region = Rect2(11, 59, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fprlu"]
+texture = SubResource("AtlasTexture_gbrff")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5du4"]
+atlas = ExtResource("1_fi2vc")
+region = Rect2(11, 155, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mwr22"]
+texture = SubResource("AtlasTexture_u5du4")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_88krq"]
+load_path = "res://.godot/imported/Sprite sheet for Basic Pack.png-c372f5b7f7d551e201f3588e84a99746.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ffb"]
+atlas = SubResource("CompressedTexture2D_88krq")
+region = Rect2(11, 107, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xnefk"]
+texture = SubResource("AtlasTexture_j8ffb")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muu57"]
 atlas = ExtResource("1_fi2vc")
@@ -179,11 +246,21 @@ DayAndNightCounterPanel/styles/panel = SubResource("StyleBoxTexture_ejrag")
 DayAndNightLabel/base_type = &"Label"
 DayAndNightLabel/font_sizes/font_size = 18
 DayAndNightLabel/fonts/font = ExtResource("2_fc56d")
+GameMenuButton/base_type = &"Button"
+GameMenuButton/colors/font_disabled_color = Color(0.321569, 0.321569, 0.321569, 1)
+GameMenuButton/font_sizes/font_size = 18
+GameMenuButton/fonts/font = ExtResource("2_fc56d")
+GameMenuButton/styles/disabled = SubResource("StyleBoxTexture_1063o")
+GameMenuButton/styles/focus = SubResource("StyleBoxTexture_essle")
+GameMenuButton/styles/hover = SubResource("StyleBoxTexture_fprlu")
+GameMenuButton/styles/normal = SubResource("StyleBoxTexture_mwr22")
+GameMenuButton/styles/pressed = SubResource("StyleBoxTexture_xnefk")
 InventoryItemPanel/base_type = &"PanelContainer"
 InventoryItemPanel/styles/panel = SubResource("StyleBoxTexture_qnx8e")
 InventoryLabel/base_type = &"Label"
 InventoryLabel/font_sizes/font_size = 8
 InventoryLabel/fonts/font = ExtResource("2_x1d3x")
+Label/fonts/font = ExtResource("2_fc56d")
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10
 MarginContainer/constants/margin_right = 10

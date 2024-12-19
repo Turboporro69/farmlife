@@ -3,6 +3,7 @@ extends Node
 
 @export var grass_tilemap_layer: TileMapLayer
 @export var tilled_soil_tilemap_layer: TileMapLayer
+@export var reference_tilemap_layer: TileMapLayer 
 @export var terrain_set: int = 0
 @export var terrain: int = 3
 
@@ -37,9 +38,12 @@ func get_cell_under_mouse() -> void:
 
 
 func add_tilled_soil_cell() -> void:
-	if distance < 20.0 && cell_source_id != -1:
+	if distance < 20.0 and cell_source_id != -1:
 		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], terrain_set, terrain, true)
 
 func remove_tilled_soil_cell() -> void:
 	if distance < 20.0:
-		tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], 0, -1, true)
+		var reference_cell_source_id = reference_tilemap_layer.get_cell_source_id(cell_position)
+		
+		if reference_cell_source_id != -1:
+			tilled_soil_tilemap_layer.set_cells_terrain_connect([cell_position], 0, -1, true)

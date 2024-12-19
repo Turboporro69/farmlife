@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://gw5luewp1ihp"]
+
+[ext_resource type="Script" path="res://ui/game_menu_screen.gd" id="1_0g0jc"]
+[ext_resource type="Theme" uid="uid://cacbng01wnh2n" path="res://ui/ToolsPanel2.tres" id="1_bbnit"]
+[ext_resource type="PackedScene" uid="uid://b8s4it8paxbh4" path="res://ui/game_menu_screen_background.tscn" id="2_0lmd7"]
+[ext_resource type="PackedScene" uid="uid://du5wrx3fjmv0b" path="res://ui/mouse_cursor_component.tscn" id="2_vmh3e"]
+[ext_resource type="Texture2D" uid="uid://uba47an6yasb" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png" id="3_ijil7"]
+[ext_resource type="FontFile" uid="uid://bb7q4u713xlhh" path="res://Sprout Lands - UI Pack - Basic pack/fonts/pixelFont-7-8x14-sproutLands.ttf" id="6_i2n3s"]
+
+[node name="GameMenuScreen" type="CanvasLayer"]
+script = ExtResource("1_0g0jc")
+
+[node name="MouseCursorComponent" parent="." instance=ExtResource("2_vmh3e")]
+cursor_component_texture = ExtResource("3_ijil7")
+
+[node name="GameMenuScreenBackground" parent="." instance=ExtResource("2_0lmd7")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bbnit")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.886275, 0.411765, 0.580392, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 54
+text = "FARM LIFE"
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_i2n3s")
+theme_override_font_sizes/font_size = 18
+text = "MADE FOR HIGH SEAS"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="StartGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "START"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 29)
+layout_mode = 2
+theme_type_variation = &"GameMenuButton"
+text = "EXIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]

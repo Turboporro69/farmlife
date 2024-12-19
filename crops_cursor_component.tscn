@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckognkmchesar"]
+
+[ext_resource type="Script" path="res://crops_cursor_component.gd" id="1_17t4f"]
+
+[node name="CropsCursorComponent" type="Node"]
+script = ExtResource("1_17t4f")

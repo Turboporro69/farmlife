@@ -1,6 +1,5 @@
-[gd_scene load_steps=12 format=4 uid="uid://dx2pa0gl8f5yg"]
+[gd_scene load_steps=14 format=4 uid="uid://dx2pa0gl8f5yg"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_ea7kh"]
 [ext_resource type="PackedScene" uid="uid://bhe3i0pw77sk3" path="res://ui/day_night_cycle_component.tscn" id="2_vuie1"]
 [ext_resource type="TileSet" uid="uid://0jixnshni3ji" path="res://node_2d.tres" id="3_chx1m"]
 [ext_resource type="PackedScene" uid="uid://x2ghbsn3db66" path="res://objects/corn_harvest.tscn" id="4_86uje"]
@@ -10,11 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://d1w4txdd65xbr" path="res://ui/game_screen.tscn" id="5_lcjy8"]
 [ext_resource type="PackedScene" uid="uid://bn40egd8f3nio" path="res://objects/chest/chest.tscn" id="7_bt8lf"]
 [ext_resource type="PackedScene" uid="uid://beme7jdl5i7i1" path="res://objects/milk.tscn" id="10_5r7yd"]
+[ext_resource type="PackedScene" uid="uid://dcymvwlrh2oo" path="res://large_tree.tscn" id="11_2k4am"]
 [ext_resource type="PackedScene" uid="uid://4hriba5eayqa" path="res://objects/egg.tscn" id="11_vqytm"]
+[ext_resource type="Shader" path="res://tree_shake.gdshader" id="12_jc86y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_li1jg"]
+resource_local_to_scene = true
+shader = ExtResource("12_jc86y")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_ea7kh")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("2_vuie1")]
 initial_day = 1
@@ -32,7 +38,7 @@ tile_map_data = PackedByteArray("AAAeAA0AAgACAAIAAAAeAAwAAgACAAEAAAAeAAsAAgACAAE
 tile_set = ExtResource("3_chx1m")
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="TileMap"]
-tile_map_data = PackedByteArray("AAANAAsAAwACAAIAAAANAAoAAwACAAEAAAANAAkAAwACAAEAAAANAAgAAwACAAEAAAANAAcAAwACAAAAAAAMAAsAAwABAAIAAAAMAAoAAwABAAEAAAAMAAkAAwABAAEAAAAMAAgAAwABAAEAAAAMAAcAAwABAAAAAAALAAsAAwABAAIAAAALAAoAAwABAAEAAAALAAkAAwABAAEAAAALAAgAAwABAAEAAAALAAcAAwABAAAAAAAKAAsAAwABAAIAAAAKAAoAAwABAAEAAAAKAAkAAwABAAEAAAAKAAgAAwABAAEAAAAKAAcAAwABAAAAAAAJAAsAAwAAAAIAAAAJAAoAAwAAAAEAAAAJAAkAAwAAAAEAAAAJAAgAAwAAAAEAAAAJAAcAAwAAAAAAAAAVAAoAAwACAAIAAAAVAAkAAwACAAEAAAAVAAgAAwACAAEAAAAVAAcAAwACAAAAAAAUAAoAAwABAAIAAAAUAAkAAwABAAEAAAAUAAgAAwABAAEAAAAUAAcAAwABAAAAAAATAAoAAwABAAIAAAATAAkAAwABAAEAAAATAAgAAwABAAEAAAATAAcAAwABAAAAAAASAAoAAwAAAAIAAAASAAkAAwAAAAEAAAASAAgAAwAAAAEAAAASAAcAAwAAAAAAAAAQAAkAAwACAAIAAAAQAAgAAwACAAEAAAAQAAcAAwACAAEAAAAQAAYAAwACAAAAAAAPAAkAAwAAAAIAAAAPAAgAAwAAAAEAAAAPAAcAAwAAAAEAAAAPAAYAAwAAAAAAAAAaAAgAAwADAAIAAAAaAAcAAwADAAAAAAAcAAgAAwADAAIAAAAcAAcAAwADAAAAAAAdAAoAAwAGAAMAAAAcAAoAAwABAAMAAAAbAAoAAwABAAMAAAAaAAoAAwABAAMAAAAZAAoAAwAFAAMAAAAZAAkAAwACAAAAAAAYAAoAAwAAAAIAAAAYAAkAAwAAAAAAAAAeAAoAAwACAAIAAAAeAAkAAwACAAAAAAAdAAkAAwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAANAAsAAwACAAIAAAANAAoAAwACAAEAAAANAAkAAwACAAEAAAANAAgAAwACAAEAAAANAAcAAwACAAAAAAAMAAsAAwABAAIAAAAMAAoAAwABAAEAAAAMAAkAAwABAAEAAAAMAAgAAwABAAEAAAAMAAcAAwABAAAAAAALAAsAAwABAAIAAAALAAoAAwABAAEAAAALAAkAAwABAAEAAAALAAgAAwABAAEAAAALAAcAAwABAAAAAAAKAAsAAwABAAIAAAAKAAoAAwABAAEAAAAKAAkAAwABAAEAAAAKAAgAAwABAAEAAAAKAAcAAwABAAAAAAAJAAsAAwAAAAIAAAAJAAoAAwAAAAEAAAAJAAkAAwAAAAEAAAAJAAgAAwAAAAEAAAAJAAcAAwAAAAAAAAAVAAoAAwACAAIAAAAVAAkAAwACAAEAAAAVAAgAAwACAAEAAAAVAAcAAwACAAAAAAAUAAoAAwABAAIAAAAUAAkAAwABAAEAAAAUAAgAAwABAAEAAAAUAAcAAwABAAAAAAATAAoAAwABAAIAAAATAAkAAwABAAEAAAATAAgAAwABAAEAAAATAAcAAwABAAAAAAASAAoAAwAAAAIAAAASAAkAAwAAAAEAAAASAAgAAwAAAAEAAAASAAcAAwAAAAAAAAAQAAkAAwACAAIAAAAQAAgAAwACAAEAAAAQAAcAAwACAAEAAAAQAAYAAwACAAAAAAAPAAkAAwAAAAIAAAAPAAgAAwAAAAEAAAAPAAcAAwAAAAEAAAAPAAYAAwAAAAAAAAAaAAgAAwADAAIAAAAaAAcAAwADAAAAAAAcAAgAAwADAAIAAAAcAAcAAwADAAAAAAAdAAoAAwAGAAMAAAAcAAoAAwABAAMAAAAbAAoAAwABAAMAAAAaAAoAAwABAAMAAAAZAAoAAwAFAAMAAAAZAAkAAwACAAAAAAAYAAoAAwAAAAIAAAAYAAkAAwAAAAAAAAAeAAoAAwACAAIAAAAeAAkAAwACAAAAAAAdAAkAAwAAAAAAAAAUAAYABwAAAAAAAQAQAAUAAQAAAAAAAQARAAUAAQAAAAAAAQASAAUAAQAAAAAAAQATAAUAAQAAAAAAAQA=")
 tile_set = ExtResource("3_chx1m")
 
 [node name="Harvest" type="Node2D" parent="."]
@@ -78,3 +84,6 @@ output_reward_scenes = Array[PackedScene]([ExtResource("10_5r7yd")])
 position = Vector2(445, 74)
 dialogue_start_command = "start_chicken_pasture_box"
 output_reward_scenes = Array[PackedScene]([ExtResource("11_vqytm")])
+
+[node name="LargeTree" parent="." instance=ExtResource("11_2k4am")]
+material = SubResource("ShaderMaterial_li1jg")

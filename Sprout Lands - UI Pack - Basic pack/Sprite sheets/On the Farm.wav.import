@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3q7ccf24pqe0"
+path="res://.godot/imported/On the Farm.wav-f8d30bc2a7f97fd229444b46f8625210.sample"
+
+[deps]
+
+source_file="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/On the Farm.wav"
+dest_files=["res://.godot/imported/On the Farm.wav-f8d30bc2a7f97fd229444b46f8625210.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

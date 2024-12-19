@@ -1,14 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxf87aupsk4tm"]
+[gd_scene load_steps=8 format=3 uid="uid://cp8tl3etkt30g"]
 
-[ext_resource type="PackedScene" uid="uid://daxkn04evpbji" path="res://player.tscn" id="3_ky83r"]
-[ext_resource type="PackedScene" uid="uid://d1w4txdd65xbr" path="res://ui/game_screen.tscn" id="4_64q1y"]
+[ext_resource type="PackedScene" uid="uid://du5wrx3fjmv0b" path="res://ui/mouse_cursor_component.tscn" id="1_anbey"]
+[ext_resource type="PackedScene" uid="uid://bhe3i0pw77sk3" path="res://ui/day_night_cycle_component.tscn" id="1_r222j"]
+[ext_resource type="PackedScene" uid="uid://br7p2x4p0dpol" path="res://levels/level_1.tscn" id="2_pn1wj"]
+[ext_resource type="Texture2D" uid="uid://uba47an6yasb" path="res://Sprout Lands - UI Pack - Basic pack/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png" id="2_snefx"]
+[ext_resource type="PackedScene" uid="uid://daxkn04evpbji" path="res://player.tscn" id="2_suurf"]
+[ext_resource type="PackedScene" uid="uid://d1w4txdd65xbr" path="res://ui/game_screen.tscn" id="3_dhwm8"]
+[ext_resource type="PackedScene" uid="uid://bjbptu54jylcn" path="res://guide/guide.tscn" id="4_mc4i1"]
 
-[node name="MainScene" type="Node2D"]
+[node name="MainScene" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("3_ky83r")]
-y_sort_enabled = false
-position = Vector2(320, 179)
+[node name="MouseCursorComponent" parent="." instance=ExtResource("1_anbey")]
+cursor_component_texture = ExtResource("2_snefx")
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("1_r222j")]
+initial_day = 1
+initial_hour = 12
+initial_minute = 30
 
-[node name="GameScreen" parent="." instance=ExtResource("4_64q1y")]
+[node name="GameRoot" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="LevelRoot" type="Node2D" parent="GameRoot"]
+y_sort_enabled = true
+
+[node name="Level1" parent="GameRoot/LevelRoot" instance=ExtResource("2_pn1wj")]
+
+[node name="Player" parent="GameRoot" instance=ExtResource("2_suurf")]
+position = Vector2(1411, 459)
+
+[node name="Camera2D" type="Camera2D" parent="GameRoot/Player"]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="GameRoot/Player"]
+
+[node name="Guide" parent="GameRoot" instance=ExtResource("4_mc4i1")]
+position = Vector2(1410, 410)
+
+[node name="GameScreen" parent="." instance=ExtResource("3_dhwm8")]
