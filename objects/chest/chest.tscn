@@ -1,0 +1,144 @@
+[gd_scene load_steps=21 format=3 uid="uid://bn40egd8f3nio"]
+
+[ext_resource type="Texture2D" uid="uid://yg1l0q6x6gj7" path="res://objects/chest/Chest.png" id="1_55042"]
+[ext_resource type="Script" path="res://objects/chest/chest.gd" id="1_nx0bu"]
+[ext_resource type="PackedScene" uid="uid://xbrrg13pkh0i" path="res://houses/interactable_component.tscn" id="2_f5rvg"]
+[ext_resource type="PackedScene" uid="uid://cd2ir1skctffd" path="res://interactable_label_component.tscn" id="3_wa5cx"]
+[ext_resource type="PackedScene" uid="uid://b3usuv7o6b8c0" path="res://objects/chest/feed_component.tscn" id="4_oxvj7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_car3s"]
+atlas = ExtResource("1_55042")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrfuf"]
+atlas = ExtResource("1_55042")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bvw7"]
+atlas = ExtResource("1_55042")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqxsr"]
+atlas = ExtResource("1_55042")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kimma"]
+atlas = ExtResource("1_55042")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exnek"]
+atlas = ExtResource("1_55042")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tplu"]
+atlas = ExtResource("1_55042")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ply76"]
+atlas = ExtResource("1_55042")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uca0t"]
+atlas = ExtResource("1_55042")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqom5"]
+atlas = ExtResource("1_55042")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibvyh"]
+atlas = ExtResource("1_55042")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrkgq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_car3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrfuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bvw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqxsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kimma")
+}],
+"loop": false,
+"name": &"chest_close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exnek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tplu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ply76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uca0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqom5")
+}],
+"loop": false,
+"name": &"chest_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibvyh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agm6x"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rivvy"]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52hba"]
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_nx0bu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lrkgq")
+autoplay = "default"
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_agm6x")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("2_f5rvg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+shape = SubResource("CircleShape2D_rivvy")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("3_wa5cx")]
+offset_left = -29.0
+offset_top = -30.0
+offset_right = -11.0
+offset_bottom = -12.0
+
+[node name="RewardMarker" type="Marker2D" parent="."]
+position = Vector2(20, 21)
+
+[node name="FeedComponent" parent="." instance=ExtResource("4_oxvj7")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
+visible = false
+shape = SubResource("CircleShape2D_52hba")

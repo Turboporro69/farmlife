@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmgg4igrosrpa"]
+
+[ext_resource type="Script" path="res://objects/growth_cycle_component.gd" id="1_fdamd"]
+
+[node name="GrowthCycleComponent" type="Node"]
+script = ExtResource("1_fdamd")

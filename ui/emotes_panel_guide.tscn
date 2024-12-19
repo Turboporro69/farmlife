@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://w5fs5pivaanx"]
+
+[ext_resource type="Theme" uid="uid://cacbng01wnh2n" path="res://ui/ToolsPanel2.tres" id="1_8eoy2"]
+[ext_resource type="Script" path="res://ui/emotes_panel.gd" id="2_6phlu"]
+[ext_resource type="Texture2D" uid="uid://fi2a4vg3r7k5" path="res://ui/portrait female.png" id="3_atamv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkaif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_atamv")
+}],
+"loop": true,
+"name": &"emote_1_idle",
+"speed": 5.0
+}]
+
+[node name="EmotesPanelGuide" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_8eoy2")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_6phlu")
+
+[node name="Emote" type="Control" parent="."]
+custom_minimum_size = Vector2(40, 40)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Emote"]
+position = Vector2(-7, -5)
+scale = Vector2(0.585, 0.585)
+sprite_frames = SubResource("SpriteFrames_tkaif")
+animation = &"emote_1_idle"
+autoplay = "emote_1_idle"
+offset = Vector2(50.1, 50.2)
+
+[node name="EmoteIdleTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="EmoteIdleTimer" to="." method="_on_emote_idle_timer_timeout"]

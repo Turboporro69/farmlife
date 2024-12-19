@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjbptu54jylcn"]
+
+[ext_resource type="Texture2D" uid="uid://dtw3hcbve3sjr" path="res://guide/walk and idle.png" id="1_ikwjm"]
+[ext_resource type="Script" path="res://guide/guide.gd" id="1_y6rvp"]
+[ext_resource type="PackedScene" uid="uid://xbrrg13pkh0i" path="res://houses/interactable_component.tscn" id="3_a3lkq"]
+[ext_resource type="PackedScene" uid="uid://cd2ir1skctffd" path="res://interactable_label_component.tscn" id="4_mh1eo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbs6g"]
+atlas = ExtResource("1_ikwjm")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq5mh"]
+atlas = ExtResource("1_ikwjm")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8gmm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbs6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq5mh")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvk8w"]
+size = Vector2(11, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxxl2"]
+radius = 22.0
+
+[node name="Guide" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_y6rvp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -11)
+sprite_frames = SubResource("SpriteFrames_n8gmm")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, -4)
+shape = SubResource("RectangleShape2D_vvk8w")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_a3lkq")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_lxxl2")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_mh1eo")]
+offset_left = -28.0
+offset_top = -39.0
+offset_right = -10.0
+offset_bottom = -21.0

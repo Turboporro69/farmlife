@@ -14,6 +14,7 @@ frame = 11
 
 [node name="CollectableComponent" parent="." instance=ExtResource("2_4alu2")]
 y_sort_enabled = true
+collision_layer = 160
 collectable_name = "tomato"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]

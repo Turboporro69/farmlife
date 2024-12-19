@@ -19,6 +19,7 @@ func on_time_tick(day: int, hour: int, minute: int) -> void:
 func _on_normal_speed_button_pressed() -> void:
 	DayAndNightCycleManager.game_speed = normal_speed
 
+
 func _on_fast_speed_button_pressed() -> void:
 	DayAndNightCycleManager.game_speed = fast_speed
 

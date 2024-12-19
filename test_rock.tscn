@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=4 uid="uid://j7dp4xkh5abn"]
+[gd_scene load_steps=6 format=4 uid="uid://j7dp4xkh5abn"]
 
 [ext_resource type="Script" path="res://node_2d.gd" id="1_vqbbn"]
 [ext_resource type="TileSet" uid="uid://0jixnshni3ji" path="res://node_2d.tres" id="2_lv1sj"]
+[ext_resource type="PackedScene" uid="uid://bhe3i0pw77sk3" path="res://ui/day_night_cycle_component.tscn" id="2_swbh0"]
 [ext_resource type="PackedScene" uid="uid://daxkn04evpbji" path="res://player.tscn" id="3_d50nk"]
+[ext_resource type="PackedScene" uid="uid://d1w4txdd65xbr" path="res://ui/game_screen.tscn" id="4_au2fx"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_vqbbn")
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("2_swbh0")]
+initial_day = 1
+initial_hour = 12
+initial_minute = 30
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -28,3 +35,5 @@ tile_set = ExtResource("2_lv1sj")
 [node name="Player" parent="." instance=ExtResource("3_d50nk")]
 position = Vector2(292, 90)
 current_tool = 1
+
+[node name="GameScreen" parent="." instance=ExtResource("4_au2fx")]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3usuv7o6b8c0"]
+
+[ext_resource type="Script" path="res://objects/chest/feed_component.gd" id="1_3o380"]
+
+[node name="FeedComponent" type="Area2D"]
+collision_layer = 16
+collision_mask = 128
+script = ExtResource("1_3o380")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

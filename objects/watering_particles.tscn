@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxyf32tdhvfy1"]
+
+[ext_resource type="Material" uid="uid://bbqv7d2y23nml" path="res://objects/corn.tres" id="1_e41xc"]
+
+[node name="WateringParticles" type="GPUParticles2D"]
+amount = 10
+process_material = ExtResource("1_e41xc")
