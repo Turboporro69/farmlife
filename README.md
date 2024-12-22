@@ -10,3 +10,12 @@ A simple farming game, the achievement is to get milk and eggs by planting some 
 - Speed modes
 - Dynamic plowed land
 - NPC guide
+
+## Credits
+
+Used this video as tutorial:
+- https://www.youtube.com/watch?v=it0lsREGdmc&t=26875s&pp=ygUPY3JvcHRhaWxzIGdvZG90
+Assets:
+- https://cupnooble.itch.io/sprout-lands-asset-pack
+- https://butterymilk.itch.io/tiny-wonder-farm-asset-pack
+- https://cupnooble.itch.io/sprout-lands-ui-pack
