@@ -98,5 +98,6 @@ navigation_agent_2d = NodePath("../../NavigationAgent2D")
 [node name="CowMooSFX" parent="." instance=ExtResource("6_waeek")]
 
 [node name="AudioPlayTimeComponent" parent="." node_paths=PackedStringArray("audio_stream_player_2D") instance=ExtResource("7_5qdm0")]
+wait_time = 20.0
 autostart = true
 audio_stream_player_2D = NodePath("../CowMooSFX")
